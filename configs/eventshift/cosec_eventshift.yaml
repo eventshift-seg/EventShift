@@ -1,0 +1,4 @@
+_base_:
+  - base.yaml
+  - models/mask2former.yaml
+  - variants/mask2former/day_event_04111.yaml

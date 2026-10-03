@@ -1,0 +1,37 @@
+project:
+  name: EventShift
+  root: ${EVENTSHIFT_ROOT:-.}
+
+runtime:
+  device: ${DEVICE:-cuda:0}
+  deterministic: true
+
+data:
+  cosec_root: ${COSEC_ROOT:-/data/cosec/train}
+  dsec_root: ${DSEC_ROOT:-/data/dsec}
+  acdc_root: ${ACDC_ROOT:-/data/acdc}
+  test_root: ${TEST_ROOT:-/data/cosec/test}
+  manifest: ${EVENTSHIFT_COSEC_MANIFEST:-/data/manifests/cosec_train_bidir_50ms.json}
+  train_dataset: null
+  val_datasets: []
+
+model:
+  name: null
+  backend: native
+  exporter: null
+  backend_config: null
+  num_classes: 19
+
+checkpoints:
+  init_weights: null
+
+train:
+  output_dir: ${EVENTSHIFT_ROOT:-.}/outputs/eventshift
+  num_gpus: 1
+  batch_size: 3
+  lr: 0.000005
+
+inference:
+  output_dir: ${EVENTSHIFT_ROOT:-.}/outputs/infer
+  progress_desc: EventShift
+  extra_args: []
